@@ -41,6 +41,13 @@ namespace DapperMapperSpoils
                 ItemNames.Resting_Grounds_Map,
                 ItemNames.Royal_Waterways_Map,
             });
+
+            if (ModHooks.GetMod("FStatsMod") is Mod)
+            {
+                HookFStats();
+            }
         }
+
+        private void HookFStats() => FStatsInterop.Hook();
     }
 }
