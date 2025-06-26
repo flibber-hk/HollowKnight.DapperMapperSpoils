@@ -18,7 +18,7 @@ namespace DapperMapperSpoils
 
     internal class MapTimeline : StatController
     {
-        private static readonly Dictionary<string, string> BoolNames = new()
+        private static readonly Dictionary<string, string> MapBoolNames = new()
         {
             [nameof(PlayerData.mapAbyss)] = ItemNames.Ancient_Basin_Map.Replace('_', ' '),
             [nameof(PlayerData.mapCity)] = ItemNames.City_of_Tears_Map.Replace('_', ' '),
@@ -34,6 +34,19 @@ namespace DapperMapperSpoils
             [nameof(PlayerData.mapRestingGrounds)] = ItemNames.Resting_Grounds_Map.Replace('_', ' '),
             [nameof(PlayerData.mapWaterways)] = ItemNames.Royal_Waterways_Map.Replace('_', ' '),
         };
+        private static Dictionary<string, string> BoolNames
+        {
+            get
+            {
+                Dictionary<string, string> result = new(MapBoolNames);
+                if (DapperMapperSpoils.GS.IncludeGrubMap)
+                {
+                    result[nameof(PlayerData.hasPinGrub)] = ItemNames.Collectors_Map.Replace('_', ' ');
+                }
+                return result;
+            }
+        }
+
 
         public Dictionary<string, float> MapObtainTimeline = new();
 
