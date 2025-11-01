@@ -41,12 +41,12 @@ jobs:
         run: dotnet build -c Release
 
       - name: Prepare artifacts for release
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: DapperMapperSpoils
           path: DapperMapperSpoils/bin/Publish/DapperMapperSpoils/zip
       - name: Upload metadata
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: metadata
           path: DapperMapperSpoils/bin/Publish/DapperMapperSpoils/metadata
